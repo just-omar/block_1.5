@@ -126,8 +126,6 @@ body {
   }
 }
 
-/*среднее разрешение*/
-
 @media (min-width: 768px) {
   .slider__wrapper {
     display: grid;
@@ -166,7 +164,6 @@ body {
     padding-bottom: 34px;
   }
 }
-/*--------*/
 
 .brand-block__show-more-button {
   display: flex;
@@ -197,7 +194,6 @@ body {
   transform: var(--transform-rotate);
 }
 
-/*Большое разрешение*/
 @media (min-width: 1120px) {
   .slider__wrapper {
     display: grid;
