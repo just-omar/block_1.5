@@ -17,17 +17,16 @@ const swiperBrand = new Swiper(".slider", {
 });
 
 const toggleButton = document.querySelector(".brand-block__show-more-button");
-let flase_or_true = true;
-const element = document.getElementById("element"); // Замените 'yourElementId' на идентификатор вашего элемента
+let flag = true;
+const element = document.getElementById("element");
 const height = element.offsetHeight;
-console.log(height);
 
 function changeCSS() {
   if (height === 160) {
     if (window.innerWidth > 1200) {
       const mediaQuery = window.matchMedia("(min-width: 1120px)");
       const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
-      if (flase_or_true) {
+      if (flag) {
         if (mediaQuery.matches) {
           for (let i = 0; i < swiperSlides.length; i++) {
             swiperSlides[i].style.display = "flex";
@@ -36,7 +35,7 @@ function changeCSS() {
               "--transform-rotate",
               "rotate(180deg)"
             );
-            flase_or_true = false;
+            flag = false;
           }
         }
       } else {
@@ -49,14 +48,14 @@ function changeCSS() {
               "--transform-rotate",
               "rotate(0deg)"
             );
-            flase_or_true = true;
+            flag = true;
           }
         }
       }
     } else if (window.innerWidth < 1200 && window.innerWidth >= 768) {
       const mediaQuery = window.matchMedia("(min-width: 768px)");
       const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
-      if (flase_or_true) {
+      if (flag) {
         if (mediaQuery.matches) {
           for (let i = 0; i < swiperSlides.length; i++) {
             swiperSlides[i].style.display = "flex";
@@ -65,7 +64,7 @@ function changeCSS() {
               "--transform-rotate",
               "rotate(180deg)"
             );
-            flase_or_true = false;
+            flag = false;
           }
         }
       } else {
@@ -78,7 +77,7 @@ function changeCSS() {
               "--transform-rotate",
               "rotate(0deg)"
             );
-            flase_or_true = true;
+            flag = true;
           }
         }
       }
