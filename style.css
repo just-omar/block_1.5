@@ -81,6 +81,11 @@ body {
 .slider__image img {
   max-width: 100%;
 }
+.slider__link {
+  background: url("/images/go.svg");
+  width: 40px;
+  height: 40px;
+}
 
 .brand-block__title-wrapper {
   text-transform: uppercase;
@@ -102,6 +107,13 @@ body {
   border: 1px solid #eaeaea;
   margin-top: 16px;
 }
+.flexible {
+  display: flex;
+}
+
+.unset {
+  display: unset;
+}
 
 .swiper-pagination {
   position: relative;
@@ -118,51 +130,6 @@ body {
   overflow: hidden;
   margin-left: 16px;
   margin-right: 16px;
-}
-
-@media (max-width: 768px) {
-  .brand-block__show-more {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .slider__wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 24px;
-    row-gap: 16px;
-    margin: 24px;
-  }
-
-  .swiper-slide-brand {
-    padding: 16px;
-    margin: 0;
-    width: 100%;
-  }
-
-  .swiper-container {
-    overflow: visible;
-    padding-right: 24px;
-    margin-right: 24px;
-    margin-left: 0;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1120px) {
-  .swiper-slide-brand:nth-last-child(-n + 5) {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .brand-block__title-wrapper {
-    padding-left: 24px;
-  }
-
-  .brand-block {
-    padding-bottom: 34px;
-  }
 }
 
 .brand-block__show-more-button {
@@ -194,6 +161,51 @@ body {
   transform: var(--transform-rotate);
 }
 
+@media (max-width: 768px) {
+  .brand-block__show-more {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .slider__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+    row-gap: 16px;
+    margin: 24px;
+  }
+
+  .swiper-slide-brand {
+    padding: 16px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .swiper-container {
+    overflow: visible;
+    padding-right: 24px;
+    margin-right: 24px;
+    margin-left: 0;
+  }
+  .brand-block__title-wrapper {
+    padding-left: 24px;
+  }
+
+  .brand-block {
+    padding-bottom: 34px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1120px) {
+  .swiper-slide-brand:nth-last-child(-n + 5) {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
 @media (min-width: 1120px) {
   .slider__wrapper {
     display: grid;
@@ -219,9 +231,7 @@ body {
     padding-right: 32px;
     margin-right: 32px;
   }
-}
 
-@media (min-width: 1120px) {
   .brand-block__title-wrapper {
     padding-left: 32px;
   }

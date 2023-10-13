@@ -17,72 +17,62 @@ const swiperBrand = new Swiper(".slider", {
 });
 
 const toggleButton = document.querySelector(".brand-block__show-more-button");
-let flag = true;
-const element = document.getElementById("element");
-const height = element.offsetHeight;
+toggleButton.classList.add("hidden");
+
+const element = document.querySelector(".slider__wrapper");
+const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
 
 function changeCSS() {
-  if (height === 160) {
-    if (window.innerWidth > 1200) {
-      const mediaQuery = window.matchMedia("(min-width: 1120px)");
-      const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
-      if (flag) {
-        if (mediaQuery.matches) {
-          for (let i = 0; i < swiperSlides.length; i++) {
-            swiperSlides[i].style.display = "flex";
-            toggleButton.innerHTML = "Скрыть";
-            toggleButton.style.setProperty(
-              "--transform-rotate",
-              "rotate(180deg)"
-            );
-            flag = false;
-          }
-        }
-      } else {
-        if (mediaQuery.matches) {
-          for (let i = 0; i < swiperSlides.length; i++) {
-            swiperSlides[i].style =
-              ".swiper-slide-brand:nth-last-child(-n + 3) { display: none;  }";
-            toggleButton.innerHTML = "Показать все";
-            toggleButton.style.setProperty(
-              "--transform-rotate",
-              "rotate(0deg)"
-            );
-            flag = true;
-          }
-        }
+  // const mediaDesktop = window.matchMedia("(min-width: 1120px)");
+  const mediaTablet = window.matchMedia(
+    "(min-width: 768px) and (max-width:1120px)"
+  );
+
+  if (mediaTablet.matches) {
+    if (toggleButton.classList.contains("hidden")) {
+      for (let i = 0; i < swiperSlides.length; i++) {
+        swiperSlides[i].style.display = "flex";
+        // swiperSlides[i].classList.add("flexible");
+        // swiperSlides[i].classList.remove(
+        //   "swiper-slide-brand:nth-last-child(-n + 3)"
+        // );
+
+        toggleButton.textContent = "Скрыть";
+        toggleButton.style.setProperty("--transform-rotate", "rotate(180deg)");
       }
-    } else if (window.innerWidth < 1200 && window.innerWidth >= 768) {
-      const mediaQuery = window.matchMedia("(min-width: 768px)");
-      const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
-      if (flag) {
-        if (mediaQuery.matches) {
-          for (let i = 0; i < swiperSlides.length; i++) {
-            swiperSlides[i].style.display = "flex";
-            toggleButton.innerHTML = "Скрыть";
-            toggleButton.style.setProperty(
-              "--transform-rotate",
-              "rotate(180deg)"
-            );
-            flag = false;
-          }
-        }
-      } else {
-        if (mediaQuery.matches) {
-          for (let i = 0; i < swiperSlides.length; i++) {
-            swiperSlides[i].style =
-              ".swiper-slide-brand:nth-last-child(-n + 3) { display: none;  }";
-            toggleButton.innerHTML = "Показать все";
-            toggleButton.style.setProperty(
-              "--transform-rotate",
-              "rotate(0deg)"
-            );
-            flag = true;
-          }
-        }
-      }
+      toggleButton.classList.remove("hidden");
     } else {
+      for (let i = 0; i < swiperSlides.length; i++) {
+        // swiperSlides.classList.add(
+        //   "swiper-slide-brand:nth-last-child(-n + 3)"
+        // );
+        swiperSlides[i].style = "";
+        toggleButton.textContent = "Показать все";
+        toggleButton.style.setProperty("--transform-rotate", "rotate(0deg)");
+      }
+      toggleButton.classList.add("hidden");
     }
-  } else {
+  }
+
+  // if (mediaDesktop.matches) {}
+  else {
+    if (toggleButton.classList.contains("hidden")) {
+      for (let i = 0; i < swiperSlides.length; i++) {
+        swiperSlides[i].style.display = "flex";
+      }
+      toggleButton.style.setProperty("--transform-rotate", "rotate(180deg)");
+      toggleButton.textContent = "Скрыть";
+      toggleButton.classList.remove("hidden");
+    } else {
+      for (let i = 0; i < swiperSlides.length; i++) {
+        // swiperSlides[i].classList.add("unset");
+        swiperSlides[i].style = "";
+      }
+      toggleButton.style.setProperty("--transform-rotate", "rotate(0deg)");
+      toggleButton.textContent = "Показать все";
+      toggleButton.classList.add("hidden");
+    }
   }
 }
+
+toggleButton.addEventListener("click", changeCSS);
