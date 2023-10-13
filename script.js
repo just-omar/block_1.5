@@ -23,7 +23,6 @@ const element = document.querySelector(".slider__wrapper");
 const swiperSlides = document.querySelectorAll(".swiper-slide-brand");
 
 function changeCSS() {
-  // const mediaDesktop = window.matchMedia("(min-width: 1120px)");
   const mediaTablet = window.matchMedia(
     "(min-width: 768px) and (max-width:1120px)"
   );
@@ -31,42 +30,30 @@ function changeCSS() {
   if (mediaTablet.matches) {
     if (toggleButton.classList.contains("hidden")) {
       for (let i = 0; i < swiperSlides.length; i++) {
-        swiperSlides[i].style.display = "flex";
-        // swiperSlides[i].classList.add("flexible");
-        // swiperSlides[i].classList.remove(
-        //   "swiper-slide-brand:nth-last-child(-n + 3)"
-        // );
-
-        toggleButton.textContent = "Скрыть";
-        toggleButton.style.setProperty("--transform-rotate", "rotate(180deg)");
+        swiperSlides[i].style.display = "flex"; // для обновления грида
       }
+      toggleButton.textContent = "Скрыть";
+      toggleButton.style.setProperty("--transform-rotate", "rotate(180deg)");
       toggleButton.classList.remove("hidden");
     } else {
       for (let i = 0; i < swiperSlides.length; i++) {
-        // swiperSlides.classList.add(
-        //   "swiper-slide-brand:nth-last-child(-n + 3)"
-        // );
-        swiperSlides[i].style = "";
-        toggleButton.textContent = "Показать все";
-        toggleButton.style.setProperty("--transform-rotate", "rotate(0deg)");
+        swiperSlides[i].style = ""; // для обновления грида
       }
+      toggleButton.textContent = "Показать все";
+      toggleButton.style.setProperty("--transform-rotate", "rotate(0deg)");
       toggleButton.classList.add("hidden");
     }
-  }
-
-  // if (mediaDesktop.matches) {}
-  else {
+  } else {
     if (toggleButton.classList.contains("hidden")) {
       for (let i = 0; i < swiperSlides.length; i++) {
-        swiperSlides[i].style.display = "flex";
+        swiperSlides[i].style.display = "flex"; // для обновления грида
       }
       toggleButton.style.setProperty("--transform-rotate", "rotate(180deg)");
       toggleButton.textContent = "Скрыть";
       toggleButton.classList.remove("hidden");
     } else {
       for (let i = 0; i < swiperSlides.length; i++) {
-        // swiperSlides[i].classList.add("unset");
-        swiperSlides[i].style = "";
+        swiperSlides[i].style = ""; // для обновления грида
       }
       toggleButton.style.setProperty("--transform-rotate", "rotate(0deg)");
       toggleButton.textContent = "Показать все";
